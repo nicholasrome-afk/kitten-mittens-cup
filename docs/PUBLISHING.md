@@ -48,6 +48,8 @@ The build copies only the public viewer and assets. It excludes the localhost co
 
 All site asset paths are relative, so they work under the `/kitten-mittens-cup/` project path. If the repository is renamed, update the links in these documents and use the URL shown in **Settings → Pages**.
 
+Published JavaScript, configuration and CSS use a content-derived release directory. A new release gets new URLs throughout its module graph, so browsers do not reuse older code for an updated page. Legacy file paths remain available for older cached homepages. If a phone still has an older homepage open, reload it, or open the website with a new `?v=` query value once to request fresh HTML. This does not affect saved tournament data.
+
 ## Feed and deployment troubleshooting
 
 - If the site is available but the data is stale, check the publication and check times above the bracket. Use **Save and publish current scores** in the Sheet and allow roughly 90 seconds. A feed failure displays a notice and retains the last valid snapshot on devices that have already loaded one.
