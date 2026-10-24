@@ -199,30 +199,15 @@ main {
   margin:auto;
   padding:0 44px
 }
-.local-banner {
+.sync-notice {
   display:flex;
   align-items:center;
   gap:10px;
   flex-wrap:wrap;
-  color:var(--muted);
+  color:#ffc3af;
   font-size:10px;
   padding:15px 0;
   border-bottom:1px solid var(--line)
-}
-.local-banner strong {
-  font-size:9px;
-  letter-spacing:1px;
-  color:#bec9af
-}
-.banner-dot {
-  width:5px;
-  height:5px;
-  background:var(--accent);
-  border-radius:100%
-}
-.sync-warning {
-  color:#ffc3af;
-  width:100%
 }
 .hero {
   display:grid;
@@ -1117,14 +1102,10 @@ main {
     left:14px;
     font-size:8px
   }
-  .local-banner {
+  .sync-notice {
     font-size:9px;
     gap:7px;
     padding:12px 0
-  }
-  .local-banner>span:nth-of-type(2) {
-    width:100%;
-    padding-left:12px
   }
   .hero {
     padding:35px 0;

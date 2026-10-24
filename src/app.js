@@ -58,7 +58,7 @@ function render(state, notice = '') {
   document.querySelector('#season-label').textContent = `${cfg.season} SEASON`;
   document.querySelector('#footer-name').textContent = cfg.tournamentName.toUpperCase();
   root.innerHTML = `
-    <div class="local-banner"><span class="banner-dot"></span><strong>${remote ? 'GOOGLE SHEETS · READ-ONLY' : 'PHASE 1 · LOCAL PREVIEW'}</strong><span>${remote ? 'Commissioner-managed scores · Yahoo auto-sync not enabled.' : 'Example / manually entered data. No Yahoo connection.'}</span>${notice ? `<span class="sync-warning" role="alert">${esc(notice)}</span>` : ''}</div>
+    ${notice ? `<div class="sync-notice" role="alert">${esc(notice)}</div>` : ''}
     <section class="episode-card" aria-label="Tournament opening title card">
       <span>A LEAGUE ORIGINAL <i>✦</i> ${cfg.season} SEASON</span>
       <p>“${champion ? 'The Gang Crowns a Golden God' : 'The Gang Starts a Tournament'}”</p>
@@ -105,7 +105,7 @@ async function refresh() {
       if (saved) {
         feedInfo = { receivedAt: saved.receivedAt, publishedAt: saved.payload.publishedAt };
         lastValid = saved.payload.state;
-        render(lastValid, 'Checking for a newer Google Sheets update…');
+        render(lastValid);
       }
     }
     const payload = await fetchSnapshot(dataSource.feedUrl);
