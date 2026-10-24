@@ -52,7 +52,7 @@ Published JavaScript, configuration and CSS use a content-derived release direct
 
 ## Feed and deployment troubleshooting
 
-- If the site is available but the data is stale, check the publication and check times above the bracket. Use **Save and publish current scores** in the Sheet and allow roughly 90 seconds. A feed failure displays a notice and retains the last valid snapshot on devices that have already loaded one.
+- If the site is available but the data is stale, check the latest publication time in the Sheet's Settings cell B12. Use **Save and publish current scores** in the Sheet and allow roughly 90 seconds. A feed failure displays a notice and retains the last valid snapshot on devices that have already loaded one.
 - If the Apps Script deployment URL changes, update `config/data-source.js`, test, commit and push. Editing Sheet scores alone does not change the URL. Replacing bound Apps Script code also requires updating its existing web-app deployment to a new version; keep its approved read-only access configuration.
 - If a website update is missing, inspect the workflow run for that exact commit. Fix the reported error and push a new commit, or rerun the failed run after resolving a hosting setting.
 - For a bad website release, revert its commit using GitHub Desktop's **History → right-click commit → Revert Changes in Commit**, then **Push origin**. This creates a new deployment without rewriting history. Reverting website code does not restore or change the separate Sheet's saved tournament results.

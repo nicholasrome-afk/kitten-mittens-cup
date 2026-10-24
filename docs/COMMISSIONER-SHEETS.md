@@ -15,7 +15,7 @@ Generate a preview and review the Draw tab. Regenerate if desired, then explicit
 3. After checking Yahoo's completed weekly scores, mark the current round **awaiting-confirmation**.
 4. Choose **Review and finalize current round**, review every score and proposed winner, then confirm. Only this action advances teams. Quarterfinals are Week 8, semifinals Week 9, and the championship Week 10.
 
-The viewer checks every 60 seconds while visible; the feed has a 30-second cache. Allow roughly 90 seconds for updates. The Sheet publication time and website check time appear above the bracket. All scoring is manual until Yahoo integration is separately configured.
+The viewer checks every 60 seconds while visible; the feed has a 30-second cache. Allow roughly 90 seconds for updates. The latest publication time is recorded in Settings cell B12. The commissioner has chosen manual scoring.
 
 ## Ties and corrections
 

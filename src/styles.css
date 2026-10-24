@@ -346,27 +346,6 @@ main {
 .section-header h2 {
   margin-top:9px
 }
-.update-info {
-  display:flex;
-  align-items:flex-end;
-  flex-direction:column;
-  gap:9px;
-  font-size:9px;
-  color:var(--muted)
-}
-.state-pill {
-  display:flex;
-  gap:7px;
-  align-items:center;
-  color:#d1dcbf;
-  font-size:10px
-}
-.state-pill i {
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:var(--accent)
-}
 .draw-note {
   font-size:11px;
   color:#c6ceb9;
@@ -379,17 +358,6 @@ main {
 .draw-note a {
   color:var(--accent);
   white-space:normal
-}
-.bracket-note {
-  font-size:10px;
-  color:var(--muted);
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:24px
-}
-.bracket-note>span:first-child {
-  color:#b4c6a2
 }
 .bracket-grid {
   display:grid;
@@ -1162,14 +1130,6 @@ main {
     align-items:flex-start;
     gap:14px
   }
-  .update-info {
-    font-size:8px;
-    max-width:160px;
-    text-align:right
-  }
-  .state-pill {
-    font-size:9px
-  }
   .draw-note {
     font-size:10px
   }
@@ -1303,11 +1263,6 @@ main {
     gap:10px;
     font-size:8px
   }
-  .bracket-note {
-    font-size:9px;
-    flex-direction:column;
-    gap:5px
-  }
   .path-games {
     grid-template-columns:1fr
   }
@@ -1399,9 +1354,6 @@ main {
   }
   .section-header {
     gap:10px
-  }
-  .update-info {
-    max-width:140px
   }
   .team-grid {
     gap:9px
@@ -1635,9 +1587,6 @@ main {
   background: #252b1c;
   border-color: #555039;
   color: #d2d3bc;
-}
-.sunny-theme .state-pill {
-  color: #e1d5b3;
 }
 .sunny-theme .round-current {
   color: #ecd18f;

@@ -9,7 +9,6 @@ import { escapeHtml as esc, avatar, scoreText, statusLabel, trophy, installImage
 const root = document.querySelector('#app');
 let lastValid = null;
 const remote = dataSource.mode === 'google-sheets';
-let feedInfo = { receivedAt: null, publishedAt: null };
 let refreshing = false;
 let cacheRead = false;
 const local = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
@@ -48,9 +47,7 @@ function render(state, notice = '') {
   const championTeam = cfg.teams.find(t => t.id === champion);
   const currentRound = state.locked ? Math.min(state.matches.filter(m => m.finalizedAt).length >= 6 ? 2 : state.matches.filter(m => m.finalizedAt).length >= 4 ? 1 : 0, 2) : 0;
   const tiebreaker = cfg.tiebreaker === 'commissioner' ? 'Tied scores are resolved by the commissioner.' : 'Higher regular-season total points through Week 7 wins a tie. If those totals are equal or unavailable, the commissioner resolves it.';
-  const dataLabel = illustrative ? state.preview ? 'Draw preview · awaiting approval' : remote ? 'Draw pending approval' : 'Illustrative bracket · draw not locked' : champion ? 'Tournament complete' : state.started ? `Week ${cfg.quarterfinalWeek + currentRound} · ${ROUND_NAMES[currentRound]}` : 'Draw locked · ready for kickoff';
   const totals = cfg.teams.map(t => ({ ...t, total: state.scores.filter(s => s.teamId === t.id && s.status === 'final').reduce((sum, s) => sum + s.actual, 0), record: tournamentRecord(state, t.id) })).sort((a, b) => b.record.wins - a.record.wins || b.total - a.total);
-  const latestScoreUpdate = state.scores.map(s => s.updatedAt).sort().at(-1);
   document.title = `${cfg.tournamentName} · ${cfg.season}`;
   const titleWords = cfg.tournamentName.trim().split(/\s+/);
   document.querySelector('.brand > span:last-child').innerHTML = `${esc(titleWords.slice(0, -1).join(' '))}<br><strong>${esc(titleWords.at(-1))}</strong>`;
@@ -72,8 +69,8 @@ function render(state, notice = '') {
       <div class="trophy-panel"><span class="trophy-overline">${championTeam ? 'THE GANG’S GOLDEN GOD' : 'THE PRIDE OF PADDY’S PUB'}</span><div class="trophy-art" role="img" aria-label="A golden kitten wearing four oversized mittens on a trophy pedestal">${trophy}</div><strong>${championTeam ? esc(displayTeamName(championTeam)) : 'THE KITTEN MITTENS CUP'}</strong><span>WEEKS ${cfg.quarterfinalWeek}–${cfg.quarterfinalWeek + 2} <i>✦</i> ${cfg.season}</span></div>
     </section>
     <section class="tournament-section" id="bracket" aria-labelledby="bracket-title">
-      <div class="section-header"><div><div class="eyebrow">THE ROAD TO PADDY’S</div><h2 id="bracket-title">${champion ? 'A five-star performance.' : 'Who will poop the bed?'}</h2></div><div class="update-info"><span class="state-pill"><i></i>${esc(dataLabel)}</span>${remote ? `<span>Sheet published ${feedInfo.publishedAt ? new Date(feedInfo.publishedAt).toLocaleString() : '—'}</span><span>${feedInfo.receivedAt ? `Website checked ${new Date(feedInfo.receivedAt).toLocaleTimeString()}` : 'Connecting to Google Sheets…'}</span>` : ''}<span>${latestScoreUpdate ? `Scores saved ${new Date(latestScoreUpdate).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}` : remote ? 'No scores published yet' : state.updatedAt ? `Local save ${new Date(state.updatedAt).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}` : 'Yahoo sync not connected'}</span></div></div>
-      ${illustrative ? `<div class="draw-note">${state.preview ? 'This is your unapproved draw preview. The commissioner must approve and lock it before scoring begins.' : remote ? 'The commissioner has not approved an opening draw yet. No tournament scores have been published.' : 'Explore an illustrative bracket with fictional scores below. Your actual tournament has no approved draw yet.'}${local && !remote ? ' <a href="./commissioner.html">Open the commissioner workbench ↗</a>' : ''}</div>` : '<div class="bracket-note"><span>✓ Draw locked · fixed advancement paths</span><span>Winners advance only after commissioner confirmation.</span></div>'}
+      <div class="section-header"><div><div class="eyebrow">THE ROAD TO PADDY’S</div><h2 id="bracket-title">${champion ? 'A five-star performance.' : 'Who will poop the bed?'}</h2></div></div>
+      ${illustrative ? `<div class="draw-note">${state.preview ? 'This is your unapproved draw preview. The commissioner must approve and lock it before scoring begins.' : remote ? 'The commissioner has not approved an opening draw yet. No tournament scores have been published.' : 'Explore an illustrative bracket with fictional scores below. Your actual tournament has no approved draw yet.'}${local && !remote ? ' <a href="./commissioner.html">Open the commissioner workbench ↗</a>' : ''}</div>` : ''}
       <div class="round-tabs" role="group" aria-label="Choose bracket round">${ROUND_NAMES.map((name, r) => `<button type="button" data-round="${r}" aria-pressed="${r === currentRound}"><span>W${cfg.quarterfinalWeek + r}</span> ${name}</button>`).join('')}</div>
       <div class="bracket-grid">${ROUND_NAMES.map((name, r) => `<section class="bracket-round round-${r} ${r === currentRound ? 'mobile-active' : ''}" data-round-panel="${r}" aria-label="${name}"><div class="round-heading"><span class="round-number">0${r + 1}</span><div><h3>${name}</h3><span>WEEK ${cfg.quarterfinalWeek + r}</span><small class="round-flavor">${['Wild card energy', 'The gang narrows it down', 'The Kitten Mittens final'][r]}</small></div>${r === currentRound && !champion ? '<span class="round-current">CURRENT</span>' : r === 2 ? '<span class="tiny-star">✦</span>' : ''}</div><div class="round-matches">${view.matches.filter(m => m.round === r).map(m => renderMatch(view, m, illustrative && !state.preview && !remote)).join('')}</div></section>`).join('')}</div>
     </section>
@@ -102,16 +99,15 @@ async function refresh() {
       let saved = null;
       try { saved = cachedSnapshot(localStorage, dataSource.feedUrl); } catch { /* Storage may be disabled. */ }
       if (saved) {
-        feedInfo = { receivedAt: saved.receivedAt, publishedAt: saved.payload.publishedAt };
         lastValid = saved.payload.state;
         render(lastValid);
       }
     }
     const payload = await fetchSnapshot(dataSource.feedUrl);
-    feedInfo = { receivedAt: new Date().toISOString(), publishedAt: payload.publishedAt };
+    const receivedAt = new Date().toISOString();
     render(payload.state);
     lastValid = payload.state;
-    try { cacheSnapshot(localStorage, dataSource.feedUrl, payload, feedInfo.receivedAt); } catch { /* In-memory state is still valid. */ }
+    try { cacheSnapshot(localStorage, dataSource.feedUrl, payload, receivedAt); } catch { /* In-memory state is still valid. */ }
   } catch (error) {
     if (lastValid) render(lastValid, `Update failed. Showing the last valid data. ${error.message}`);
     else { root.innerHTML = `<div class="error-panel" role="alert"><h1>${remote ? 'The Google Sheets feed is not available yet.' : 'Tournament data needs attention.'}</h1><p>${esc(error.message)}</p>${local && !remote ? '<a href="./commissioner.html">Open recovery tools ↗</a>' : '<p>The website will retry automatically. Your saved tournament data has not been changed.</p>'}</div>`; root.setAttribute('aria-busy', 'false'); }

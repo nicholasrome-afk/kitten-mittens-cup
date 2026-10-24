@@ -26,7 +26,7 @@ Open the private commissioner spreadsheet in Google Drive, signed in as its owne
 3. Enter actual scores, optional projections and statuses on Scores. Valid user edits publish automatically; **Save and publish current scores** is the retry action.
 4. Once Yahoo's weekly scores are complete, mark the round **awaiting-confirmation** and use **Review and finalize current round**. Review the displayed scores and winners before confirming. Only this action advances teams.
 
-The website displays the saved, commissioner-approved draw and real published scores. Before draw approval it shows **Draw pending approval**; blank scores stay blank. Sheet publication and website check times appear above the bracket. Refreshes run every 60 seconds, with a 30-second public cache; allow roughly 90 seconds for an update. The viewer retains the last valid snapshot during a feed failure and displays a notice.
+The website displays the saved, commissioner-approved draw and real published scores. Before draw approval it identifies an unapproved preview or pending draw; blank scores stay blank. The latest publication time is available in the Sheet's Settings tab. Refreshes run every 60 seconds, with a 30-second public cache; allow roughly 90 seconds for an update. The viewer retains the last valid snapshot during a feed failure and displays a notice.
 
 See [commissioner operating guide](docs/COMMISSIONER-SHEETS.md) for corrections, tiebreakers, backups, deployment updates and next-season reset. The old localhost commissioner page is disabled while Sheets mode is active.
 
