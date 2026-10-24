@@ -476,7 +476,7 @@ const DEFAULT_CONFIG = {
       "logoUrl": "./assets/avatars/luther.jpg",
       "color": "#e6a7d1",
       "initials": "SB",
-      "characterName": "Luther, Mac’s dad"
+      "characterName": "Luther"
     },
     {
       "id": "pollo",
