@@ -2,7 +2,9 @@
 
 An eight-team fantasy football tournament with an Always Sunny theme, locally bundled character portraits, and the Kitten Mittens trophy. Quarterfinals are Week 8, semifinals Week 9, and the championship Week 10 of 2026.
 
-The website reads a public, read-only feed from a **private commissioner-managed Google Sheet**. The commissioner explicitly approved public access to the tournament data. Visitors need no Google sign-in. Yahoo scoring is still manual, and the website has not been published to GitHub Pages.
+The [public website](https://nicholasrome-afk.github.io/kitten-mittens-cup/) reads a public, read-only feed from a **private commissioner-managed Google Sheet**. The commissioner explicitly approved public access to the tournament data. Visitors need no Google sign-in. Yahoo scoring is still manual.
+
+Source and deployment history are in the [GitHub repository](https://github.com/nicholasrome-afk/kitten-mittens-cup). GitHub Pages publishes the tested static viewer whenever `main` changes. See [publishing and updates](docs/PUBLISHING.md) for setup, changes and troubleshooting.
 
 ## Run the website
 
@@ -60,4 +62,4 @@ The preview check needs the local server running. It verifies the actual served 
 
 **58 automated tests pass.** They cover the 31 legal draws against an independent permutation oracle, unbiased selection, scoring, ties, all rounds, corrections, reset, persistence, Sheets validation, generated Apps Script parity, public field filtering, spreadsheet-specific cache isolation and transport failures. The live public JSON/JSONP responses and connected browser were also verified, including all eight portraits and hidden commissioner links. All 20 native Sheets integration checks passed in a private practice copy, including a champion, ties, zero scores, corrections and reset; the real tournament snapshot was unchanged. Detailed verification is recorded in the setup guide.
 
-Current stage: Google Sheets integration and native acceptance checks completed. Next is repository/website publication after acceptance; Yahoo OAuth and automatic scoring remain later work.
+Current stage: Google Sheets integration, native acceptance checks and GitHub Pages publication completed. Yahoo OAuth and automatic scoring remain later work.
