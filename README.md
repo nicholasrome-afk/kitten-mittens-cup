@@ -26,7 +26,7 @@ Open the private commissioner spreadsheet in Google Drive, signed in as its owne
 3. Enter actual scores, optional projections and statuses on Scores. Valid user edits publish automatically; **Save and publish current scores** is the retry action.
 4. Once Yahoo's weekly scores are complete, mark the round **awaiting-confirmation** and use **Review and finalize current round**. Review the displayed scores and winners before confirming. Only this action advances teams.
 
-The real tournament remains unapproved with blank scores. The website correctly displays **Draw pending approval**, rather than fictional example scores. Sheet publication and website check times appear above the bracket. Refreshes run every 60 seconds, with a 30-second public cache; allow roughly 90 seconds for an update. The viewer retains the last valid snapshot during a feed failure and displays a notice.
+The website displays the saved, commissioner-approved draw and real published scores. Before draw approval it shows **Draw pending approval**; blank scores stay blank. Sheet publication and website check times appear above the bracket. Refreshes run every 60 seconds, with a 30-second public cache; allow roughly 90 seconds for an update. The viewer retains the last valid snapshot during a feed failure and displays a notice.
 
 See [commissioner operating guide](docs/COMMISSIONER-SHEETS.md) for corrections, tiebreakers, backups, deployment updates and next-season reset. The old localhost commissioner page is disabled while Sheets mode is active.
 
@@ -62,4 +62,4 @@ The preview check needs the local server running. It verifies the actual served 
 
 **58 automated tests pass.** They cover the 31 legal draws against an independent permutation oracle, unbiased selection, scoring, ties, all rounds, corrections, reset, persistence, Sheets validation, generated Apps Script parity, public field filtering, spreadsheet-specific cache isolation and transport failures. The live public JSON/JSONP responses and connected browser were also verified, including all eight portraits and hidden commissioner links. All 20 native Sheets integration checks passed in a private practice copy, including a champion, ties, zero scores, corrections and reset; the real tournament snapshot was unchanged. Detailed verification is recorded in the setup guide.
 
-Current stage: Google Sheets integration, native acceptance checks and GitHub Pages publication completed. Yahoo OAuth and automatic scoring remain later work.
+Current stage: Google Sheets integration, native acceptance checks and GitHub Pages publication completed. Yahoo OAuth and automatic scoring are not enabled. See [Yahoo connection steps](docs/YAHOO-SETUP.md) for the current application requirement and planned connection.
