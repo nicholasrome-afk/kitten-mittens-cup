@@ -6,7 +6,7 @@ export const characters = {
   power: { characterName: 'Mac', initials: 'M', logoUrl: './assets/avatars/mac.jpg', portraitPosition: '50% 30%', yahooName: 'Power Bottoms', previousYahooNames: ['The Power Buns'] },
   tommy: { characterName: 'The Lawyer', initials: 'TL', logoUrl: './assets/avatars/the-lawyer.jpg', portraitCrop: { width: 383, left: -141, top: -10 } },
   pollo: { characterName: 'Rex', initials: 'R', logoUrl: './assets/avatars/rex.jpg', portraitCrop: { width: 433, left: -67, top: -17 } },
-  sassy: { characterName: 'Luther, Mac’s dad', initials: 'LM', logoUrl: './assets/avatars/luther.jpg', portraitCrop: { width: 190, left: -49, top: -25 } },
+  sassy: { characterName: 'Luther', initials: 'LM', logoUrl: './assets/avatars/luther.jpg', portraitCrop: { width: 190, left: -49, top: -25 } },
   sledge: { characterName: 'Frank Reynolds', initials: 'FR', logoUrl: './assets/avatars/frank-reynolds.jpg', portraitPosition: '50% 30%' },
   watt: { characterName: 'Charlie', initials: 'C', logoUrl: './assets/avatars/charlie.jpg', portraitPosition: '50% 30%' },
   panthers: { characterName: 'D.E.N.N.I.S.', initials: 'DR', logoUrl: './assets/avatars/dennis.jpg', portraitPosition: '50% 30%' }

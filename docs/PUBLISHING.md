@@ -8,7 +8,7 @@ The public source repository is **https://github.com/nicholasrome-afk/kitten-mit
 
 Use the private Google Sheet's **Tournament** menu and Scores tab, as described in the [commissioner guide](COMMISSIONER-SHEETS.md). These updates do not require Git, a website rebuild or a new deployment. Allow roughly 90 seconds for the feed cache and viewer refresh.
 
-The opening draw is published only after explicit commissioner approval; the website shows the saved bracket. Yahoo scores are entered manually until a separate Yahoo integration is configured. See [Yahoo connection steps](YAHOO-SETUP.md).
+The opening draw is published only after explicit commissioner approval; the website shows the saved bracket. The commissioner has chosen to enter Yahoo scores manually in Google Sheets.
 
 ## Website design or code changes
 

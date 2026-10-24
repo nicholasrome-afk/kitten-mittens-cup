@@ -1,5 +1,7 @@
 # Connecting Yahoo scoring
 
+**Deferred by the commissioner: scoring will be entered manually in Google Sheets.** This document is retained as a reference; no Yahoo connection or scheduled import is being configured.
+
 Checked against Yahoo's official developer pages on October 24, 2026. **Yahoo automatic scoring is not installed or enabled yet.** Manual Google Sheets scoring continues to work.
 
 ## First: request Fantasy Sports API access
