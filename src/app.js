@@ -60,7 +60,7 @@ function render(state, notice = '') {
   root.innerHTML = `
     ${notice ? `<div class="sync-notice" role="alert">${esc(notice)}</div>` : ''}
     <section class="episode-card" aria-label="Tournament opening title card">
-      <span>A LEAGUE ORIGINAL <i>✦</i> ${cfg.season} SEASON</span>
+      <span>HUEVOS GRANDES <i>✦</i> ${cfg.season} SEASON</span>
       <p>“${champion ? 'The Gang Crowns a Golden God' : 'The Gang Starts a Tournament'}”</p>
       <span>IT’S ALWAYS COMPETITIVE IN THIS LEAGUE</span>
     </section>
