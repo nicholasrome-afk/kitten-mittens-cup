@@ -1,0 +1,17 @@
+{
+  "name": "midseason-championship",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An eight-team, commissioner-confirmed fantasy football tournament.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node --watch scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "test": "node --test",
+    "pretest": "node scripts/build-apps-script.mjs",
+    "build:sheets": "node scripts/build-apps-script.mjs",
+    "build": "node scripts/build.mjs",
+    "check:preview": "node scripts/check-preview.mjs"
+  }
+}

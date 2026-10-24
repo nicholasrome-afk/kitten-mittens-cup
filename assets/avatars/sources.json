@@ -1,0 +1,58 @@
+[
+  {
+    "id": "donna",
+    "character": "Sweet Dee",
+    "file": "sweet-dee.jpg",
+    "sourcePage": "https://www.tvmaze.com/shows/347/its-always-sunny-in-philadelphia/cast",
+    "imageUrl": "https://static.tvmaze.com/uploads/images/medium_portrait/574/1435169.jpg"
+  },
+  {
+    "id": "power",
+    "character": "Mac",
+    "file": "mac.jpg",
+    "sourcePage": "https://www.tvmaze.com/shows/347/its-always-sunny-in-philadelphia/cast",
+    "imageUrl": "https://static.tvmaze.com/uploads/images/medium_portrait/574/1435170.jpg"
+  },
+  {
+    "id": "tommy",
+    "character": "The Lawyer",
+    "file": "the-lawyer.jpg",
+    "sourcePage": "https://brobible.com/culture/article/best-recurring-characters-its-always-sunny/",
+    "imageUrl": "https://brobible.com/wp-content/uploads/2019/09/lawyer-its-always-sunny.jpg?quality=90"
+  },
+  {
+    "id": "pollo",
+    "character": "Rex",
+    "file": "rex.jpg",
+    "sourcePage": "https://brobible.com/culture/article/best-recurring-characters-its-always-sunny/",
+    "imageUrl": "https://brobible.com/wp-content/uploads/2019/09/rex-its-always-sunny.jpeg?quality=90&w=650"
+  },
+  {
+    "id": "sassy",
+    "character": "Luther, Mac’s dad",
+    "file": "luther.jpg",
+    "sourcePage": "https://www.tvinsider.com/people/gregory-scott-cummins/",
+    "imageUrl": "https://media.baselineresearch.com/images/1417041/1417041_full.jpg"
+  },
+  {
+    "id": "sledge",
+    "character": "Frank Reynolds",
+    "file": "frank-reynolds.jpg",
+    "sourcePage": "https://www.tvmaze.com/shows/347/its-always-sunny-in-philadelphia/cast",
+    "imageUrl": "https://static.tvmaze.com/uploads/images/medium_portrait/574/1435951.jpg"
+  },
+  {
+    "id": "watt",
+    "character": "Charlie",
+    "file": "charlie.jpg",
+    "sourcePage": "https://www.tvmaze.com/shows/347/its-always-sunny-in-philadelphia/cast",
+    "imageUrl": "https://static.tvmaze.com/uploads/images/medium_portrait/574/1435172.jpg"
+  },
+  {
+    "id": "panthers",
+    "character": "D.E.N.N.I.S.",
+    "file": "dennis.jpg",
+    "sourcePage": "https://www.tvmaze.com/shows/347/its-always-sunny-in-philadelphia/cast",
+    "imageUrl": "https://static.tvmaze.com/uploads/images/medium_portrait/574/1435171.jpg"
+  }
+]
