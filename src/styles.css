@@ -1817,3 +1817,9 @@ main {
     font-size: 9px;
   }
 }
+
+.champion-feature { display:flex; align-items:center; gap:clamp(24px,5vw,64px); padding:40px 0; border-bottom:1px solid var(--line); }
+.champion-feature img { width:min(40%,300px); height:auto; border-radius:12px; box-shadow:0 12px 40px #0006; }
+.champion-feature h2 { font-size:clamp(30px,5vw,56px); margin:12px 0; }
+.champion-feature p { line-height:1.7; }
+@media(max-width:600px) { .champion-feature { flex-direction:column; text-align:center; } .champion-feature img { width:min(100%,300px); } }
